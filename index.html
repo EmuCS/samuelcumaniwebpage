@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samuel Cumani</title>
+<meta name="description" content="Samuel Cumani — computer science and business at Trinity College Dublin. Currently working on multi-sensor mobile mapping at the German Aerospace Center.">
+<link rel="canonical" href="https://samuelcumani.com/">
+<meta property="og:title" content="Samuel Cumani">
+<meta property="og:description" content="Computer science and business at Trinity College Dublin. Sensors, robotics, aerospace.">
+<meta property="og:url" content="https://samuelcumani.com/">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,300;6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EDEFEA;
+    --paper-2:#E4E8E2;
+    --ink:#131C1A;
+    --ink-soft:#56635F;
+    --rule:#C9D1CB;
+    --signal:#0F5E58;
+    --beam:#C08A1E;
+    --measure:56rem;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Newsreader",Georgia,serif;
+    font-size:clamp(1.05rem,0.98rem + 0.35vw,1.2rem);
+    line-height:1.6;
+    font-weight:400;
+  }
+  ::selection{background:var(--signal);color:var(--paper)}
+  a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule);transition:border-color .15s,color .15s}
+  a:hover{color:var(--signal);border-bottom-color:var(--signal)}
+  a:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+  .wrap{max-width:var(--measure);margin:0 auto;padding:0 1.5rem}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;padding:5.5rem 0 3.5rem;overflow:hidden}
+  #sweep{position:absolute;inset:0;width:100%;height:100%;z-index:0;opacity:.85}
+  .hero .wrap{position:relative;z-index:1}
+  .name{
+    font-family:"Archivo",system-ui,sans-serif;
+    font-weight:700;
+    font-size:clamp(2.9rem,1.4rem + 7vw,6.2rem);
+    line-height:.92;
+    letter-spacing:-.035em;
+    margin:0 0 1.4rem;
+  }
+  .lede{max-width:34ch;margin:0;font-size:clamp(1.15rem,1rem + .5vw,1.45rem);line-height:1.45;font-weight:300}
+  .lede em{font-style:normal;color:var(--signal)}
+
+  /* ---------- labels & rows ---------- */
+  .label{
+    font-family:"IBM Plex Mono",ui-monospace,monospace;
+    font-size:.7rem;font-weight:500;
+    letter-spacing:.16em;text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  section{padding:3rem 0;border-top:1px solid var(--rule)}
+  .row{display:grid;grid-template-columns:9rem 1fr;gap:2rem}
+  @media (max-width:640px){
+    .row{grid-template-columns:1fr;gap:.9rem}
+    .hero{padding:3.5rem 0 2.5rem}
+  }
+  .row > .label{padding-top:.45rem}
+
+  ul.plain{list-style:none;margin:0;padding:0}
+  ul.plain li{padding:.55rem 0}
+  ul.plain li + li{border-top:1px solid var(--paper-2)}
+
+  .entry{display:grid;grid-template-columns:6.5rem 1fr;gap:1.25rem;align-items:baseline;padding:.7rem 0}
+  .entry + .entry{border-top:1px solid var(--paper-2)}
+  .entry .when{font-family:"IBM Plex Mono",monospace;font-size:.78rem;color:var(--ink-soft);letter-spacing:.02em}
+  .entry .what{margin:0}
+  .entry .where{display:block;color:var(--ink-soft);font-size:.92em}
+  @media (max-width:640px){
+    .entry{grid-template-columns:1fr;gap:.2rem}
+  }
+
+  /* ---------- contact ---------- */
+  .links{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;margin:0;padding:0;list-style:none}
+  .links a{font-family:"IBM Plex Mono",monospace;font-size:.9rem;letter-spacing:.01em}
+
+  footer{padding:2.5rem 0 4rem;border-top:1px solid var(--rule)}
+  footer p{margin:0;font-family:"IBM Plex Mono",monospace;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <canvas id="sweep" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h1 class="name">Samuel<br>Cumani</h1>
+    <p class="lede">I build software that reads the physical world — <em>sensors, robots, and the pipelines behind them.</em></p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap row">
+      <p class="label">Now</p>
+      <ul class="plain">
+        <li>R&amp;D intern at the <strong>German Aerospace Center (DLR)</strong>, Oberpfaffenhofen — multi-sensor mobile mapping. Stereo cameras, LiDAR and GNSS fused through ROS&nbsp;2 on a Jetson, turned into training data for perception models.</li>
+        <li>Second year of <strong>Computer Science &amp; Business</strong> at Trinity College Dublin.</li>
+        <li>Starting a parallel online <strong>Engineering Science</strong> degree at THWS Würzburg-Schweinfurt this October.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap row">
+      <p class="label">Background</p>
+      <div>
+        <div class="entry">
+          <span class="when">2026 —</span>
+          <p class="what">Technical Officer, Computer Science Society
+            <span class="where">Trinity College Dublin</span></p>
+        </div>
+        <div class="entry">
+          <span class="when">2026 —</span>
+          <p class="what">Treasurer, University of Dublin Choral Society
+            <span class="where">Sponsorship, budgets, and getting concerts paid for</span></p>
+        </div>
+        <div class="entry">
+          <span class="when">2026</span>
+          <p class="what">Rocketry Training Programme
+            <span class="where">ESA Academy</span></p>
+        </div>
+        <div class="entry">
+          <span class="when">2025 — 2029</span>
+          <p class="what">B.A. (Mod.) Computer Science &amp; Business
+            <span class="where">Trinity College Dublin — first-class honours, Year&nbsp;1</span></p>
+        </div>
+        <div class="entry">
+          <span class="when">2025</span>
+          <p class="what">European Baccalaureate
+            <span class="where">European School Munich</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap row">
+      <p class="label">Interests</p>
+      <p style="margin:0">Embedded systems and robotics, aerospace, and motorsport. I like problems where the code has to survive contact with hardware. Split between Munich and Dublin; I answer to both.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap row">
+      <p class="label">Contact</p>
+      <ul class="links">
+        <li><a href="mailto:samuel@samuelcumani.com">samuel@samuelcumani.com</a></li>
+        <li><a href="https://www.linkedin.com/in/YOUR-HANDLE/">LinkedIn</a></li>
+        <li><a href="https://github.com/YOUR-HANDLE">GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><p>Samuel Cumani · Munich / Dublin · <span id="yr">2026</span></p></div>
+</footer>
+
+<script>
+(function(){
+  var c = document.getElementById('sweep');
+  if(!c) return;
+  var ctx = c.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var pts = [], dpr = Math.min(window.devicePixelRatio || 1, 2), w = 0, h = 0, origin = {x:0,y:0};
+
+  function seed(){
+    var rect = c.getBoundingClientRect();
+    w = rect.width; h = rect.height;
+    c.width = w * dpr; c.height = h * dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    origin = { x: w * 0.82, y: h * 0.46 };
+    var n = Math.round(Math.min(320, (w*h)/1600));
+    pts = [];
+    for(var i=0;i<n;i++){
+      var a = Math.random()*Math.PI*2;
+      var r = Math.pow(Math.random(),0.6) * Math.max(w,h) * 0.75;
+      pts.push({
+        x: origin.x + Math.cos(a)*r,
+        y: origin.y + Math.sin(a)*r*0.62,
+        a: Math.atan2(Math.sin(a)*0.62, Math.cos(a)),
+        s: 0.7 + Math.random()*1.3,
+        hit: 0
+      });
+    }
+  }
+
+  function draw(beam){
+    ctx.clearRect(0,0,w,h);
+    for(var i=0;i<pts.length;i++){
+      var p = pts[i];
+      var lit = p.hit;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.s * (1 + lit*0.9), 0, Math.PI*2);
+      ctx.fillStyle = lit > 0.02
+        ? 'rgba(192,138,30,' + (0.18 + lit*0.55) + ')'
+        : 'rgba(86,99,95,0.20)';
+      ctx.fill();
+      p.hit *= 0.965;
+    }
+    if(beam !== null){
+      var g = ctx.createLinearGradient(origin.x, origin.y,
+        origin.x + Math.cos(beam)*w, origin.y + Math.sin(beam)*h);
+      g.addColorStop(0,'rgba(15,94,88,0.16)');
+      g.addColorStop(1,'rgba(15,94,88,0)');
+      ctx.beginPath();
+      ctx.moveTo(origin.x, origin.y);
+      ctx.lineTo(origin.x + Math.cos(beam)*w*1.6, origin.y + Math.sin(beam)*h*1.6);
+      ctx.strokeStyle = g; ctx.lineWidth = 1.5; ctx.stroke();
+    }
+  }
+
+  var angle = 0, last = 0;
+  function frame(t){
+    var dt = Math.min(t - last, 50); last = t;
+    var prev = angle;
+    angle = (angle + dt * 0.00055) % (Math.PI*2);
+    for(var i=0;i<pts.length;i++){
+      var pa = pts[i].a < 0 ? pts[i].a + Math.PI*2 : pts[i].a;
+      if((prev <= pa && pa < angle) || (prev > angle && (pa >= prev || pa < angle))) pts[i].hit = 1;
+    }
+    draw(angle);
+    requestAnimationFrame(frame);
+  }
+
+  seed();
+  if(reduce){ draw(null); }
+  else { requestAnimationFrame(frame); }
+
+  var t0;
+  window.addEventListener('resize', function(){
+    clearTimeout(t0);
+    t0 = setTimeout(function(){ seed(); if(reduce) draw(null); }, 150);
+  });
+
+  document.getElementById('yr').textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
